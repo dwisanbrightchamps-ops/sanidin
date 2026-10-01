@@ -1,0 +1,6 @@
+{
+  "name": "Sanidin - Bimbingan Belajar Akuntansi Privat",
+  "description": "Bimbingan belajar akuntansi privat modern untuk Mahasiswa & Siswa SMA bersama Sanidin.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

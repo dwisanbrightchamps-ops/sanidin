@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+/* Pure CSS Geometric Fibonacci Tree Logo */
+.fibonacci-tree-logo {
+  position: relative;
+  width: 38px;
+  height: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fibonacci-tree-logo:hover {
+  transform: scale(1.08) translateY(-1px);
+}
+
+/* Base wrapper for layered triangles */
+.tree-layer-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+/* Tier 1 (Apex - Fibonacci 2 unit) */
+.tree-tier-1 {
+  top: 0;
+  width: 14px;
+  height: 12px;
+  z-index: 4;
+}
+
+/* Tier 2 (Fibonacci 3 unit) */
+.tree-tier-2 {
+  top: 8px;
+  width: 22px;
+  height: 14px;
+  z-index: 3;
+}
+
+/* Tier 3 (Fibonacci 5 unit) */
+.tree-tier-3 {
+  top: 17px;
+  width: 32px;
+  height: 16px;
+  z-index: 2;
+}
+
+/* Tier 4 (Fibonacci 8 unit - broad base) */
+.tree-tier-4 {
+  top: 26px;
+  width: 38px;
+  height: 15px;
+  z-index: 1;
+}
+
+/* Faceted triangular halves creating origami 3D geometric tree */
+.facet-left {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  background: linear-gradient(135deg, #FEF08A, #FDE047);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.facet-right {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  background: linear-gradient(135deg, #FACC15, #EAB308);
+}
+
+/* Tier-specific subtle lighting variations */
+.tree-tier-1 .facet-left {
+  background: linear-gradient(135deg, #FFFFFF, #FEF9C3);
+}
+.tree-tier-1 .facet-right {
+  background: linear-gradient(135deg, #FEF08A, #FACC15);
+}
+
+.tree-tier-2 .facet-left {
+  background: linear-gradient(135deg, #FEF08A, #FDE047);
+}
+.tree-tier-2 .facet-right {
+  background: linear-gradient(135deg, #FACC15, #CA8A04);
+}
+
+.tree-tier-3 .facet-left {
+  background: linear-gradient(135deg, #FDE047, #EAB308);
+}
+.tree-tier-3 .facet-right {
+  background: linear-gradient(135deg, #CA8A04, #A16207);
+}
+
+.tree-tier-4 .facet-left {
+  background: linear-gradient(135deg, #EAB308, #CA8A04);
+}
+.tree-tier-4 .facet-right {
+  background: linear-gradient(135deg, #A16207, #854D0E);
+}
+
+/* Geometric Tree Trunk (Fibonacci base pillar) */
+.tree-trunk {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 7px;
+  background: linear-gradient(to bottom, #FFFFFF, #E2E8F0);
+  border-radius: 1px 1px 2px 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+/* Golden star/sparkle at the apex */
+.tree-spark {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.9), 0 0 10px 4px rgba(250, 204, 21, 0.6);
+  z-index: 6;
+}
+
+/* Persib Blue brand colors:
+   Primary: #0037A5 (Persib Royal Blue)
+   Deep: #002266
+   Light Tint: #EEF4FF
+*/
+.bg-persib-blue {
+  background-color: #0037A5;
+}
+
+.bg-persib-dark {
+  background-color: #002266;
+}
+
+.text-persib-blue {
+  color: #0037A5;
+}
+
+/* Glassmorphism nav header */
+.glass-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0.3;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeInCard 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Floating animation for accounting badges & symbols */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-2deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+/* Minimalist scroll reveal transitions */
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Subtle glowing pulse for important CTA elements */
+@keyframes goldenPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(250, 204, 21, 0);
+  }
+}
+
+.pulse-gold {
+  animation: goldenPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
